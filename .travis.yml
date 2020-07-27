@@ -15,3 +15,8 @@ before_install:
   - docker build -t ulrichjohannes/react-test -f ./client/Dockerfile.dev
 script:
   - docker run ulrichjohannes/react-test npm test -- --coverage
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
